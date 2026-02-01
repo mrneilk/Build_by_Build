@@ -2,4 +2,4 @@
 There is no place like home...
 
 
-// Custom applicatio assited with AI to build home blue prints
+// Custom application assited with AI to build home blue prints
