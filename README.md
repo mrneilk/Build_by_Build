@@ -30,7 +30,7 @@ Build_by_Build is an AI-assisted application to help design custom home blueprin
 1. Clone the repository:
 
    git clone https://github.com/mrneilk/Build_by_Build.git
-2. Create and activate a virtual environment:
+2. Create and activate a virtual environment: - WIP
 
    python -m venv .venv
    source .venv/bin/activate  # macOS/Linux
