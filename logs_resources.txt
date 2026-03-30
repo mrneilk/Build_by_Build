@@ -6,3 +6,50 @@ https://github.com/FreeCAD/FreeCAD - well I see
 Another free and simple tool for evryone usage - TikerCAD by Autodesk 
 
 Where is the use? Design, Engineering
+
+Building large-scale applications for 2D/3D design and animation (like Maya, Blender, or AutoCAD) is a monumental task that combines low-level systems programming, advanced mathematics, and highly optimized hardware interaction.
+
+These applications are essentially "operating systems" for geometry and light. Here is the breakdown of how they are constructed:
+
+---
+
+## 1. The Core Language: C++
+Almost all industry-standard design tools are built using **C++**. 
+* **Why?** Performance is non-negotiable. When a scene has 10 million polygons, the application must manage memory manually to avoid "garbage collection" stutters.
+* **The Ecosystem:** Developers use C++ to write the heavy-lifting kernels, while often using **Python** as a scripting layer to allow users to automate tasks or build plugins.
+
+## 2. The Graphics Engine (The Bridge to Hardware)
+To turn math into pixels, these apps don't talk to the screen directly; they talk to the Graphics Processing Unit (GPU) via specialized APIs.
+* **Rasterization:** Traditional 2D/3D viewport rendering often uses **OpenGL** or **Vulkan** (cross-platform) or **DirectX** (Windows).
+* **Ray Tracing:** For photorealistic animation, engines like Arnold or Cycles use APIs like **NVIDIA OptiX** to simulate the physical behavior of light.
+
+## 3. Mathematical Foundations
+The "brain" of a 3D app is a massive library of linear algebra and calculus.
+* **Linear Algebra:** Every movement, rotation, or scale of an object is handled via **Matrix Transformations**. 
+* **B-Splines and NURBS:** For smooth 2D curves and 3D surfaces, developers implement complex polynomial equations to ensure lines remain smooth regardless of zoom level.
+* **Physics Engines:** Large-scale apps include solvers for fluid dynamics, cloth simulation, and rigid body collisions, often utilizing libraries like **PhysX** or **Bullet**.
+
+
+
+## 4. Data Structures: Managing Complexity
+Efficiency in these apps relies on how data is organized in memory:
+* **Scene Graphs:** A hierarchical tree structure that tracks the relationship between objects (e.g., if a "Hand" moves, the "Fingers" must follow).
+* **Spatial Partitioning:** Using **Octrees** or **BVH (Bounding Volume Hierarchies)** to quickly determine which objects are visible to the camera so the computer doesn't waste power rendering things behind the user's view.
+
+## 5. The "Undo" Architecture
+In a large-scale design app, you can't just save a "copy" of the file every time a user moves a vertex. Instead, they use the **Command Pattern**. Every action is an object that knows how to "Do" and "Undo" itself, maintaining a stack of changes that minimizes memory usage.
+
+---
+
+### Comparison of Tech Stacks
+
+| Component | Industry Standard | Open Source Equivalent |
+| :--- | :--- | :--- |
+| **Primary Language** | C++ / C# | C++ |
+| **Graphics API** | DirectX / Metal | OpenGL / Vulkan |
+| **Scripting** | Python / Lua | Python |
+| **UI Framework** | Qt | Blender UI (Custom) |
+
+---
+
+Building these requires a deep understanding of the **Graphics Pipeline**. Would you like me to explain the specific stages of that pipeline, or perhaps explore how modern "Real-Time" engines like Unreal differ from traditional design software?
